@@ -1,0 +1,70 @@
++ '[' '!' -d extracted ]
++ cd extracted
++ unzip -o ../../openstackvncfirewall.zip
+Archive:  ../../openstackvncfirewall.zip
+  inflating: metadata.zip
+  inflating: vendor-index.xml
+  inflating: index.xml
+  inflating: vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ ls -l vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
+-rw-r--r--    1 root     root           323 Sep 15 20:55 index.xml
+-rw-r--r--    1 root     root          2414 Sep 15 20:55 metadata.zip
+-rw-r--r--    1 root     root           205 Sep 15 20:55 vendor-index.xml
+-rw-r--r--    1 root     root          1686 Sep 15 20:55 vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ chmod 0644 vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ ls -l vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
+-rw-r--r--    1 root     root           323 Sep 15 20:55 index.xml
+-rw-r--r--    1 root     root          2414 Sep 15 20:55 metadata.zip
+-rw-r--r--    1 root     root           205 Sep 15 20:55 vendor-index.xml
+-rw-r--r--    1 root     root          1686 Sep 15 20:55 vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ cd vib20/OpenStackVNC
++ '[' '!' -f vnc ]
++ ls -l descriptor.xml sig.pkcs7 vnc
+-rw-r--r--    1 root     root          1090 Sep 15 20:55 descriptor.xml
+-rw-r--r--    1 root     root             0 Sep 15 20:55 sig.pkcs7
+-rw-r--r--    1 root     root           408 Sep 15 20:55 vnc
++ chmod 0644 descriptor.xml sig.pkcs7 vnc
++ ls -l descriptor.xml sig.pkcs7 vnc
+-rw-r--r--    1 root     root          1090 Sep 15 20:55 descriptor.xml
+-rw-r--r--    1 root     root             0 Sep 15 20:55 sig.pkcs7
+-rw-r--r--    1 root     root           408 Sep 15 20:55 vnc
++ gunzip
++ ls -l vnc.tar.vtar
+-rw-r--r--    1 root     root          2926 Sep 15 20:55 vnc.tar.vtar
++ '[' '!' -f vnc.tar ]
++ '[' -f vnc.tar.vtar ]
++ '[' '!' -x /bin/vmtar ]
++ vmtar -v -x vnc.tar.vtar -o vnc.tar
++ ls -l vnc.tar
+-rw-r--r--    1 root     root          3584 Sep 15 20:55 vnc.tar
++ tar xvf vnc.tar
+etc/
+etc/vmware/
+etc/vmware/firewall/
+etc/vmware/firewall/vnc.xml
++ ls -l etc/vmware/firewall/vnc.xml
+-rw-r--r--    1 root     root           366 Dec 10  2013 etc/vmware/firewall/vnc.xml
++ cat etc/vmware/firewall/vnc.xml
+<!-- Firewall configuration information for vnc -->
+<ConfigRoot>
+  <service>
+  <id>vnc</id>
+
+<rule id='0000'>
+		<direction>inbound</direction>
+		<protocol>tcp</protocol>
+		<porttype>dst</porttype>
+	<port>
+        	<begin>5900</begin>
+        	<end>9999</end>
+       </port>
+
+</rule>
+<enabled>true</enabled>
+    <required>false</required>
+  </service>
+</ConfigRoot>
+
++ echo 'done'
+done
++ exit

@@ -1,0 +1,47 @@
++ [ ! -d extracted ]
++ mkdir extracted
++ cd extracted
++ unzip -o ../../openstackvncfirewall.zip
+Archive:  ../../openstackvncfirewall.zip
+  inflating: metadata.zip            
+  inflating: vendor-index.xml        
+  inflating: index.xml               
+  inflating: vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib  
++ ls -l vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
+---------- 1 rcpao rcpao  323 Mar 18  2014 index.xml
+-rw-r--r-- 1 rcpao rcpao 2414 Mar 18  2014 metadata.zip
+---------- 1 rcpao rcpao  205 Mar 18  2014 vendor-index.xml
+-rw-r--r-- 1 rcpao rcpao 1686 Mar 18  2014 vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ chmod 0644 vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ ls -l vendor-index.xml metadata.zip index.xml vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
+-rw-r--r-- 1 rcpao rcpao  323 Mar 18  2014 index.xml
+-rw-r--r-- 1 rcpao rcpao 2414 Mar 18  2014 metadata.zip
+-rw-r--r-- 1 rcpao rcpao  205 Mar 18  2014 vendor-index.xml
+-rw-r--r-- 1 rcpao rcpao 1686 Mar 18  2014 vib20/OpenStackVNC/VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
++ cd vib20/OpenStackVNC
++ [ ! -f vnc ]
++ [ ! -x /usr/bin/ar ]
++ /usr/bin/ar vx VMware_bootbank_OpenStackVNC_5.0.0-0.0.1.vib
+x - descriptor.xml
+x - sig.pkcs7
+x - vnc
++ ls -l descriptor.xml sig.pkcs7 vnc
+---------- 1 rcpao rcpao 1090 Sep 15 13:55 descriptor.xml
+---------- 1 rcpao rcpao    0 Sep 15 13:55 sig.pkcs7
+---------- 1 rcpao rcpao  408 Sep 15 13:55 vnc
++ chmod 0644 descriptor.xml sig.pkcs7 vnc
++ ls -l descriptor.xml sig.pkcs7 vnc
+-rw-r--r-- 1 rcpao rcpao 1090 Sep 15 13:55 descriptor.xml
+-rw-r--r-- 1 rcpao rcpao    0 Sep 15 13:55 sig.pkcs7
+-rw-r--r-- 1 rcpao rcpao  408 Sep 15 13:55 vnc
++ gunzip
++ ls -l vnc.tar.vtar
+-rw-r--r-- 1 rcpao rcpao 2926 Sep 15 13:55 vnc.tar.vtar
++ [ ! -f vnc.tar ]
++ [ -f vnc.tar.vtar ]
++ [ ! -x /bin/vmtar ]
++ echo /bin/vmtar only exists in VMware ESXi.
+/bin/vmtar only exists in VMware ESXi.
++ echo Copy vnc.tar.vtar to ESXi and rerun.
+Copy vnc.tar.vtar to ESXi and rerun.
++ exit
